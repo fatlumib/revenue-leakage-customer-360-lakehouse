@@ -1,0 +1,2963 @@
+{
+  "datasets": [
+    {
+      "name": "14b9be29",
+      "displayName": "customer_360",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.revenue_leakage_gold.customer_360",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "afea15be",
+      "displayName": "executive_kpis",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.revenue_leakage_gold.executive_kpis",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "96c1cc73",
+      "displayName": "payment_recovery",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.revenue_leakage_gold.payment_recovery",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "b170d440",
+      "displayName": "revenue_leakage",
+      "config": {
+        "version": "1.1",
+        "source": "workspace.revenue_leakage_gold.revenue_leakage",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "d2c2d538",
+      "displayName": "Executive Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "total-customers",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "total_customer_count",
+                      "expression": "`total_customer_count`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total Customers"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "total_customer_count"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "2f75bf6a",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "active_customer_count",
+                      "expression": "`active_customer_count`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Active Customers"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "active_customer_count"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "9d09b779",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "active_customer_rate",
+                      "expression": "`active_customer_rate`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Active Customer Rate (%)"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "active_customer_rate",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 1
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "1056c223",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "inactive_customer_count",
+                      "expression": "`inactive_customer_count`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Inactive Customers"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "inactive_customer_count"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "56958648",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "gross_invoiced_amount",
+                      "expression": "`gross_invoiced_amount`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Gross Invoiced"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "gross_invoiced_amount",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "e1737b47",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "collected_amount",
+                      "expression": "`collected_amount`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Collected Revenue"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "collected_amount",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "f0788b49",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "confirmed_leakage_amount",
+                      "expression": "`confirmed_leakage_amount`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Confirmed Leakage"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "confirmed_leakage_amount",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "53419776",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "afea15be",
+                  "fields": [
+                    {
+                      "name": "recovery_opportunity_amount",
+                      "expression": "`recovery_opportunity_amount`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Recovery Opportunity"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "recovery_opportunity_amount",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "monthly-confirmed-leakage",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "weekly(invoice_date)",
+                      "expression": "DATE_TRUNC(\"WEEK\", `invoice_date`)"
+                    },
+                    {
+                      "name": "sum(confirmed_leakage_amount)",
+                      "expression": "SUM(`confirmed_leakage_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Confirmed Leakage Trend"
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "weekly(invoice_date)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(confirmed_leakage_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "5213f5df",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "sum(invoice_total_amount)",
+                      "expression": "SUM(`invoice_total_amount`)"
+                    },
+                    {
+                      "name": "leakage_category",
+                      "expression": "`leakage_category`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Invoice Value by Leakage Category"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(invoice_total_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "leakage_category",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "8fe90302",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "sum(revenue_at_risk_amount)",
+                      "expression": "SUM(`revenue_at_risk_amount`)"
+                    },
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue at Risk by Region"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(revenue_at_risk_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "region",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x"
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 13,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "8c1c2ad3",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "sum(outstanding_amount)",
+                      "expression": "SUM(`outstanding_amount`)"
+                    },
+                    {
+                      "name": "invoice_aging_bucket",
+                      "expression": "`invoice_aging_bucket`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Outstanding Amount by Invoice Age"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(outstanding_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "invoice_aging_bucket",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 13,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "invoice-date",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_invoice_date",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "invoice_date",
+                      "expression": "`invoice_date`"
+                    },
+                    {
+                      "name": "invoice_date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Invoice Date"
+              },
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "invoice_date",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_invoice_date"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "region",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_region",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    },
+                    {
+                      "name": "region_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Region"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "region",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_region"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "leakage-category",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_leakage_category",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "leakage_category",
+                      "expression": "`leakage_category`"
+                    },
+                    {
+                      "name": "leakage_category_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Leakage Category"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "leakage_category",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_leakage_category"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "invoice-age",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_invoice_aging_bucket",
+                "query": {
+                  "datasetName": "b170d440",
+                  "fields": [
+                    {
+                      "name": "invoice_aging_bucket",
+                      "expression": "`invoice_aging_bucket`"
+                    },
+                    {
+                      "name": "invoice_aging_bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Invoice Age"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "invoice_aging_bucket",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce69c711f8ea283a989cdf626b4_invoice_aging_bucket"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "8b40c1c5",
+      "displayName": "Payment Recovery",
+      "layout": [
+        {
+          "widget": {
+            "name": "attempted-amount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(payment_attempt_amount)",
+                      "expression": "SUM(`payment_attempt_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Attempted Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(payment_attempt_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "settled-amount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(settled_amount)",
+                      "expression": "SUM(`settled_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Settled Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(settled_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "recovered-amount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(recovered_amount)",
+                      "expression": "SUM(`recovered_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Recovered Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(recovered_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "failed-payments",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(failed_payment_count)",
+                      "expression": "SUM(`failed_payment_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Failed Payments"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(failed_payment_count)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "successful-payments",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(successful_payment_count)",
+                      "expression": "SUM(`successful_payment_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Successful Payments"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(successful_payment_count)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "unrecovered-amount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(unrecovered_amount)",
+                      "expression": "SUM(`unrecovered_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Unrecovered Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(unrecovered_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "successful-recoveries",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(recovery_success_flag)",
+                      "expression": "SUM(`recovery_success_flag`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Successful Recoveries"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(recovery_success_flag)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "payment-attempts",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(payment_attempt_count)",
+                      "expression": "SUM(`payment_attempt_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Payment Attempts"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(payment_attempt_count)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "region",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_region",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    },
+                    {
+                      "name": "region_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Region"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "region",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_region"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-segment",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_customer_segment",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "customer_segment_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Segment"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_segment",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_customer_segment"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "recovery-priority",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_recovery_priority",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "recovery_priority",
+                      "expression": "`recovery_priority`"
+                    },
+                    {
+                      "name": "recovery_priority_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Recovery Priority"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "recovery_priority",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_recovery_priority"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "recovery-status",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_recovery_status",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "recovery_status",
+                      "expression": "`recovery_status`"
+                    },
+                    {
+                      "name": "recovery_status_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Recovery Status"
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "recovery_status",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce698de1e9ca1a1188078a60fc4_recovery_status"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 6,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "77e73ccb",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "monthly(recovery_date)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `recovery_date`)"
+                    },
+                    {
+                      "name": "sum(recovered_amount)",
+                      "expression": "SUM(`recovered_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Monthly Recovered Amount"
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly(recovery_date)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(recovered_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "a5121154",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "countdistinct(invoice_id)",
+                      "expression": "COUNT(DISTINCT `invoice_id`)"
+                    },
+                    {
+                      "name": "recovery_outcome",
+                      "expression": "`recovery_outcome`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Recovery Outcomes"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "countdistinct(invoice_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "recovery_outcome",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 7,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "recoverable-amount-priority",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(recoverable_amount)",
+                      "expression": "SUM(`recoverable_amount`)"
+                    },
+                    {
+                      "name": "recovery_priority",
+                      "expression": "`recovery_priority`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`recovery_priority` IN ('High', 'Critical', 'Medium')"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Actionable Recovery Opportunity by Priority"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(recoverable_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "recovery_priority",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 13,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "latest-failure-reason",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "sum(unrecovered_amount)",
+                      "expression": "SUM(`unrecovered_amount`)"
+                    },
+                    {
+                      "name": "latest_failure_reason",
+                      "expression": "`latest_failure_reason`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`latest_failure_reason` IN ('Bank Rejected', 'Card Declined', 'Insufficient Funds', 'Processor Timeout')"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Unrecovered Amount by Failure Reason"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(unrecovered_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "latest_failure_reason",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 13,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "priority-recovery-actions",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "96c1cc73",
+                  "fields": [
+                    {
+                      "name": "invoice_id",
+                      "expression": "`invoice_id`"
+                    },
+                    {
+                      "name": "customer_name",
+                      "expression": "`customer_name`"
+                    },
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    },
+                    {
+                      "name": "days_past_due",
+                      "expression": "`days_past_due`"
+                    },
+                    {
+                      "name": "recovery_status",
+                      "expression": "`recovery_status`"
+                    },
+                    {
+                      "name": "recovery_priority",
+                      "expression": "`recovery_priority`"
+                    },
+                    {
+                      "name": "recovery_priority_score",
+                      "expression": "`recovery_priority_score`"
+                    },
+                    {
+                      "name": "recommended_recovery_action",
+                      "expression": "`recommended_recovery_action`"
+                    },
+                    {
+                      "name": "recoverable_amount",
+                      "expression": "`recoverable_amount`"
+                    },
+                    {
+                      "name": "unrecovered_amount",
+                      "expression": "`unrecovered_amount`"
+                    },
+                    {
+                      "name": "latest_failure_reason",
+                      "expression": "`latest_failure_reason`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`recovery_priority` IN ('Critical', 'High', 'Medium')"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Priority Recovery Actions"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "invoice_id"
+                  },
+                  {
+                    "fieldName": "customer_name"
+                  },
+                  {
+                    "fieldName": "region"
+                  },
+                  {
+                    "fieldName": "days_past_due"
+                  },
+                  {
+                    "fieldName": "recovery_status"
+                  },
+                  {
+                    "fieldName": "recovery_priority"
+                  },
+                  {
+                    "fieldName": "recovery_priority_score",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 0
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "recommended_recovery_action"
+                  },
+                  {
+                    "fieldName": "recoverable_amount",
+                    "format": {
+                      "type": "number-currency",
+                      "currencyCode": "USD",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 2
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "unrecovered_amount",
+                    "format": {
+                      "type": "number-currency",
+                      "currencyCode": "USD",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 2
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "latest_failure_reason"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 19,
+            "width": 12,
+            "height": 13
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "0db4a044",
+      "displayName": "Customer 360",
+      "layout": [
+        {
+          "widget": {
+            "name": "total-customers",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "count(customer_id)",
+                      "expression": "COUNT(`customer_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total Customers"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(customer_id)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "active-subscriptions",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "sum(active_subscription_count)",
+                      "expression": "SUM(`active_subscription_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Active Subscriptions"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(active_subscription_count)"
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total-arr",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "sum(current_arr)",
+                      "expression": "SUM(`current_arr`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total ARR"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(current_arr)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "revenue-at-risk",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "sum(revenue_at_risk_amount)",
+                      "expression": "SUM(`revenue_at_risk_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue at Risk"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(revenue_at_risk_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total-mrr",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "sum(current_mrr)",
+                      "expression": "SUM(`current_mrr`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Total MRR"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(current_mrr)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "past-due-amount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "sum(past_due_amount)",
+                      "expression": "SUM(`past_due_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Past-Due Amount"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(past_due_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "average-risk-score",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "avg(risk_score)",
+                      "expression": "AVG(`risk_score`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Average Risk Score"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(risk_score)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 1
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "collection-rate",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "avg(collection_rate_pct)",
+                      "expression": "AVG(`collection_rate_pct`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Collection Rate (%)"
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(collection_rate_pct)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 1
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "region1",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_region",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    },
+                    {
+                      "name": "region_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Region"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "region",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_region"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-segment1",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_segment",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "customer_segment_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Segment"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_segment",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_segment"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 6,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-value-tier",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_value_tier",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_value_tier",
+                      "expression": "`customer_value_tier`"
+                    },
+                    {
+                      "name": "customer_value_tier_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Value Tier"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_value_tier",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_value_tier"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 7,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "risk-tier1",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_risk_tier",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "risk_tier",
+                      "expression": "`risk_tier`"
+                    },
+                    {
+                      "name": "risk_tier_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Risk Tier"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "risk_tier",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_risk_tier"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-status",
+            "queries": [
+              {
+                "name": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_status",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_status",
+                      "expression": "`customer_status`"
+                    },
+                    {
+                      "name": "customer_status_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Status"
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "customer_status",
+                    "queryName": "dashboards/01f19ce5a24112c38da3ba39172a9fa8/datasets/01f19ce68e75181b8b20f6686745270c_customer_status"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 6,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "customers-by-risk-tier",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "risk_tier",
+                      "expression": "`risk_tier`"
+                    },
+                    {
+                      "name": "count(customer_id)",
+                      "expression": "COUNT(`customer_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Customers by Risk Tier"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "risk_tier",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "count(customer_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "revenue-risk-customer-value-tier",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_value_tier",
+                      "expression": "`customer_value_tier`"
+                    },
+                    {
+                      "name": "sum(revenue_at_risk_amount)",
+                      "expression": "SUM(`revenue_at_risk_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue at Risk by Customer Value Tier"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "customer_value_tier",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(revenue_at_risk_amount)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "collection-rate-by-region",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "avg(collection_rate_pct)",
+                      "expression": "AVG(`collection_rate_pct`)"
+                    },
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "Collection Rate by Region (%)"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "avg(collection_rate_pct)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "region",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x"
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 14,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "mrr-by-customer-segment",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "sum(current_mrr)",
+                      "expression": "SUM(`current_mrr`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": true,
+                "title": "MRR by Customer Segment"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "customer_segment",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(current_mrr)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "customer-risk-value-detail",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "14b9be29",
+                  "fields": [
+                    {
+                      "name": "customer_id",
+                      "expression": "`customer_id`"
+                    },
+                    {
+                      "name": "customer_name",
+                      "expression": "`customer_name`"
+                    },
+                    {
+                      "name": "region",
+                      "expression": "`region`"
+                    },
+                    {
+                      "name": "customer_segment",
+                      "expression": "`customer_segment`"
+                    },
+                    {
+                      "name": "customer_status",
+                      "expression": "`customer_status`"
+                    },
+                    {
+                      "name": "current_mrr",
+                      "expression": "`current_mrr`"
+                    },
+                    {
+                      "name": "current_arr",
+                      "expression": "`current_arr`"
+                    },
+                    {
+                      "name": "collection_rate_pct",
+                      "expression": "`collection_rate_pct`"
+                    },
+                    {
+                      "name": "revenue_at_risk_amount",
+                      "expression": "`revenue_at_risk_amount`"
+                    },
+                    {
+                      "name": "confirmed_leakage_amount",
+                      "expression": "`confirmed_leakage_amount`"
+                    },
+                    {
+                      "name": "risk_score",
+                      "expression": "`risk_score`"
+                    },
+                    {
+                      "name": "risk_tier",
+                      "expression": "`risk_tier`"
+                    },
+                    {
+                      "name": "customer_value_tier",
+                      "expression": "`customer_value_tier`"
+                    },
+                    {
+                      "name": "latest_payment_status",
+                      "expression": "`latest_payment_status`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Customer Risk & Value Detail"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "customer_id"
+                  },
+                  {
+                    "fieldName": "customer_name"
+                  },
+                  {
+                    "fieldName": "region"
+                  },
+                  {
+                    "fieldName": "customer_segment"
+                  },
+                  {
+                    "fieldName": "customer_status"
+                  },
+                  {
+                    "fieldName": "current_mrr",
+                    "format": {
+                      "type": "number-currency",
+                      "currencyCode": "USD",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 2
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "current_arr",
+                    "format": {
+                      "type": "number-currency",
+                      "currencyCode": "USD",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 2
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "collection_rate_pct",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 1
+                      },
+                      "hideGroupSeparator": true
+                    }
+                  },
+                  {
+                    "fieldName": "revenue_at_risk_amount"
+                  },
+                  {
+                    "fieldName": "confirmed_leakage_amount"
+                  },
+                  {
+                    "fieldName": "risk_score"
+                  },
+                  {
+                    "fieldName": "risk_tier"
+                  },
+                  {
+                    "fieldName": "customer_value_tier"
+                  },
+                  {
+                    "fieldName": "latest_payment_status"
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 20,
+            "width": 12,
+            "height": 13
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "fd5277b7",
+      "displayName": "Global Filters",
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
